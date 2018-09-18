@@ -1,6 +1,9 @@
 {
   "name": "ceg-hw-1",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Displays random color on press and allows for draw tool",
+  "author": "Zach Richardson",
+
   "private": true,
   "devDependencies": {
     "react-native-scripts": "1.14.0",

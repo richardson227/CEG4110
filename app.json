@@ -1,5 +1,18 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
+   "name": "Zach Richardson",
+   "icon": "./Assets/my-icon.png",
+   "version": "1.0.0",
+   "orientation": "portrait",
+   "slug": "ceg-hw-1",
+   "sdkVersion": "27.0.0",
+   "ios": {
+     "bundleIdentifier": "com.zacharyjrichardson.cegHW"
+   },
+  "android": {
+    "package":"com.zacharyjrichardson.cegHW",
+    "permissions": [],
+    "versionCode": 1
   }
+}
 }
