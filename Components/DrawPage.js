@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, Dimensions, Alert } from 'react-native';
 import { Button } from 'react-native-elements';
 import DrawRN from 'rn-draw';
+const {height, width} = Dimensions.get('window');
 
 export default class DrawPage extends React.Component {
   constructor(props) {
@@ -11,9 +12,40 @@ export default class DrawPage extends React.Component {
     };
   }
 
+  _save(){
+    Alert.alert("Picture Saved!");
+  }
+
   render() {
     return (
       <View style={styles.container}>
+      <View style = {styles.buttons}>
+        <Button
+        buttonStyle={styles.undoButton}
+        onPress={() => {
+        this._undo && this._undo()
+        }}
+        title="Undo"
+        />
+
+        <Button
+        buttonStyle={styles.clearButton}
+        onPress={() => {
+        this._clear && this._clear()
+        }}
+        title="Clear"
+        />
+
+        <Button
+        buttonStyle={styles.saveButton}
+        onPress={() => {
+        this._save()
+        }}
+        title="Save"
+        />
+
+
+      </View>
       <View style={styles.drawCanvas}>
         <DrawRN
           strokes={[]}
@@ -34,7 +66,7 @@ export default class DrawPage extends React.Component {
           <Button
             buttonStyle={styles.blackButton}
             onPress={() => {
-              this.setState({ color: 'black' });
+            this.setState({ color: 'black' });
             }}
           />
             <Button
@@ -89,18 +121,37 @@ export default class DrawPage extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: 'column'
+  },
+  buttons: {
+    marginTop: height*.025,
+    height: height*.05,
+    flex:1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'grey',
+    justifyContent: 'space-between'
   },
   drawCanvas: {
-    height: '90%',
+    height: height*.7,
   },
   colorPicker: {
     backgroundColor: '#eff2f7',
-    height: '10%',
+    height: height*.1,
     flexDirection: 'row',
     alignItems: 'center',
     borderColor: 'black',
-    borderTopWidth: 1
+    borderTopWidth: 1,
+    marginTop: 1
+  },
+  undoButton: {
+    backgroundColor: 'grey'
+  },
+  clearButton: {
+    backgroundColor: 'grey'
+  },
+  saveButton: {
+    backgroundColor: 'grey'
   },
   blackButton: {
     backgroundColor: 'black',
