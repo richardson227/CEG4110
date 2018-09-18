@@ -4,14 +4,22 @@ import { Button } from 'react-native-elements';
 import DrawRN from 'rn-draw';
 const {height, width} = Dimensions.get('window');
 
+/**
+This class features a canvas, color picker, and option bar
+A scrollable color picker allows you to navigate the color selection
+A canvas allows you to draw using the selected colorPicker
+An option bar at the top allows for clearing, undoing, and saving
+**/
 export default class DrawPage extends React.Component {
   constructor(props) {
     super(props);
+    //State consists of drawing color
     this.state = {
       color: '#000000'
     };
   }
 
+//Call this method to save the image to the phone
   _save(){
     Alert.alert("Picture Saved!");
   }
@@ -19,7 +27,8 @@ export default class DrawPage extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-      <View style = {styles.buttons}>
+      <View style = {styles.optionButtons}>
+        //Undo Button Component
         <Button
         buttonStyle={styles.undoButton}
         onPress={() => {
@@ -27,7 +36,7 @@ export default class DrawPage extends React.Component {
         }}
         title="Undo"
         />
-
+        //Clear Button Component
         <Button
         buttonStyle={styles.clearButton}
         onPress={() => {
@@ -35,7 +44,7 @@ export default class DrawPage extends React.Component {
         }}
         title="Clear"
         />
-
+        //Save Button Component
         <Button
         buttonStyle={styles.saveButton}
         onPress={() => {
@@ -43,10 +52,9 @@ export default class DrawPage extends React.Component {
         }}
         title="Save"
         />
-
-
       </View>
       <View style={styles.drawCanvas}>
+        //Canvas drawing component
         <DrawRN
           strokes={[]}
           containerStyle={{ backgroundColor: 'white' }}
@@ -56,55 +64,65 @@ export default class DrawPage extends React.Component {
           clear={clear => {
             this._clear = clear;
           }}
+          {/* Stroke color is determined by the state */}
           color={this.state.color}
           strokeWidth={8}
           onChangeStrokes={strokes => console.log(strokes)}
         />
       </View>
         <View style={styles.colorPicker}>
+          //Scrollable color picker
           <ScrollView horizontal={true} style={styles.colorScroll}>
-          <Button
-            buttonStyle={styles.blackButton}
-            onPress={() => {
-            this.setState({ color: 'black' });
-            }}
-          />
+            //Black color button
+            <Button
+              buttonStyle={styles.blackButton}
+              onPress={() => {
+                this.setState({ color: 'black' });
+              }}
+            />
+            //Red color button
             <Button
               buttonStyle={styles.redButton}
               onPress={() => {
-                this.setState({ color: 'red' });
+              this.setState({ color: 'red' });
               }}
             />
+            //Orange color button
             <Button
               buttonStyle={styles.orangeButton}
               onPress={() => {
                 this.setState({ color: 'orange' });
               }}
             />
+            //Yellow Button
             <Button
               buttonStyle={styles.yellowButton}
               onPress={() => {
                 this.setState({ color: 'yellow' });
               }}
             />
+            //Green Button
             <Button
               buttonStyle={styles.greenButton}
               onPress={() => {
                 this.setState({ color: 'green' });
               }}
             />
+            //Blue Button
             <Button
               buttonStyle={styles.blueButton}
               onPress={() => {
                 this.setState({ color: 'blue' });
               }}
             />
+            //Indigo Button
             <Button
               buttonStyle={styles.indigoButton}
               onPress={() => {
                 this.setState({ color: 'indigo' });
               }}
             />
+            //Violet Button
             <Button
               buttonStyle={styles.violetButton}
               onPress={() => {
@@ -123,7 +141,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column'
   },
-  buttons: {
+  optionButtons: {
     marginTop: height*.025,
     height: height*.05,
     flex:1,
