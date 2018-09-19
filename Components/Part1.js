@@ -9,7 +9,6 @@ import { Text, View, StyleSheet, TextInput, Button } from 'react-native'; // Ver
  The RGB values of the specified hex color will be displayed as well
  */
 export default class ColorPage extends React.Component {
-
   constructor(props) {
     super(props);
     //State of the class consists of the text output and the color
@@ -51,23 +50,23 @@ export default class ColorPage extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-      //Changeable text value that adjusts color based on state
+      {/** Changeable text value that adjusts color based on state **/}
       <TextInput
         style={{ color: this.state.color, fontSize: 30}}
         onChangeText={(textOutput) => {
           this.setState({textOutput})}}
         value={this.state.textOutput}
       />
-        //States color hex value
+        {/** States color hex value **/}
         <Text
           style={{ fontSize: 20, marginBottom: 5 }}>
           {this.state.color}
         </Text>
-        //States RGB values
+        {/** States RGB values **/}
         <Text style={{ fontSize: 15, marginBottom: 20 }}>
           R:{this.rgbValues().r} G:{this.rgbValues().g} B:{this.rgbValues().b}
         </Text>
-        //Button that will change the hex color code on press
+        {/** Button that will change the hex color code on press **/}
         <Button onPress={this.changeColor} title="Change Color" />
       </View>
     );
