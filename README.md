@@ -10,8 +10,12 @@ The goal of this project was to create a simple 2 tab app that includes the foll
 Inside the "Bin" directory is an APK file that can be run on an android device. Just move this APK file to the device and open it. This will launch the application.
 
 ## Operation Instructions
-![myApp Page1](CEG-Documentation/page1.png)
-![myApp Page2](CEG-Documentation/page2.png)
+![ColorPage](CEG-Documentation/Page1.PNG)
+<br />
+Upon opening the app you will see the color page. On this page you can press the button to generate a new color hex code. This will change the color of the text to the corresponding color. Pressing the colored text allows the user to edit and change the contents of the text. <br /><br /><br />
+![DrawPage](CEG-Documentation/Page2.PNG)
+<br />
+The second page of the app is the drawing page. On this page you can select a color from the scrolling color pallette, draw pictures on the canvas, as well as undo and clear your work. The save button will display a message that the image was saved, but the underlying functionality to save to the phone is not currently there.
 
 ## Structure
 In structuring my app, I decided to break into 3 classes; ColorPage, DrawPage, and Navigation. This was logical because each page of the app has its own class, and the navigation component can live seperately from the individual pages.
