@@ -41,8 +41,8 @@ The design of the color pallete is a side scrolling selection of color swatches 
 ## Dependencies
 The following libraries were used in this build
 
-https://www.npmjs.com/package/rn-draw
-https://github.com/react-native-training/react-native-elements
+https://www.npmjs.com/package/rn-draw <br />
+https://github.com/react-native-training/react-native-elements <br />
 https://www.npmjs.com/package/react-navigation
 
-
+Side Note: It says there are 2 contributors, but thats because I forgot I already had a github account tied to my computer
